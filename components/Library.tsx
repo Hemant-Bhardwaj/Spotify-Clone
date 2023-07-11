@@ -1,11 +1,30 @@
 "use client";
+
 import { TbPlaylist } from "react-icons/tb";
 import { AiOutlinePlus } from "react-icons/ai";
 
-const Library = () => {
+import { Song } from "@/types";
+import useUploadModal from "@/hooks/useUploadModal";
+import { useUser } from "@/hooks/useUser";
+import useAuthModal from "@/hooks/useAuthModal";
+
+interface LibraryProps {
+  songs: Song[];
+}
+
+const Library: React.FC<LibraryProps> = ({ songs }) => {
+  const { user, subscription } = useUser();
+  const uploadModal = useUploadModal();
+  const authModal = useAuthModal();
+
   const onClick = () => {
-    // Handle upload later
+    if (!user) {
+      return authModal.onOpen();
+    }
+
+    return uploadModal.onOpen();
   };
+
   return (
     <div className="flex flex-col">
       <div className="flex items-center justify-between px-5 pt-4">
@@ -24,7 +43,6 @@ const Library = () => {
           "
         />
       </div>
-      <div className="flex flex-col gap-y-2 mt-4 px-3">List of songs!</div>
     </div>
   );
 };
