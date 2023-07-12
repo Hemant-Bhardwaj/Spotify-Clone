@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Mini Demo
+
+![spotify-clone](https://github.com/Hemant-Bhardwaj/Spotify-Clone/assets/14939987/0246e728-cc24-4566-bb8e-bce6656294a2)
+
 ## Getting Started
 
 First, run the development server:
